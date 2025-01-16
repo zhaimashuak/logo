@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <!-- Appender для TRACE сообщений -->
+        <File name="TraceFile" fileName="logs/trace.log">
+            <PatternLayout pattern="%d{ISO8601} [%t] %-5level: %msg%n%throwable"/>
+            <Filters>
+                <LevelRangeFilter minLevel="trace" maxLevel="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </File>
+
+        <!-- Appender для DEBUG сообщений -->
+        <File name="DebugFile" fileName="logs/debug.log">
+            <PatternLayout pattern="%d{ISO8601} [%t] %-5level: %msg%n%throwable"/>
+            <Filters>
+                <LevelRangeFilter minLevel="debug" maxLevel="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </File>
+
+        <!-- Appender для INFO сообщений -->
+        <File name="InfoFile" fileName="logs/info.log">
+            <PatternLayout pattern="%d{ISO8601} [%t] %-5level: %msg%n%throwable"/>
+            <Filters>
+                <LevelRangeFilter minLevel="info" maxLevel="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </File>
+
+        <!-- Appender для WARN сообщений -->
+        <File name="WarnFile" fileName="logs/warn.log">
+            <PatternLayout pattern="%d{ISO8601} [%t] %-5level: %msg%n%throwable"/>
+            <Filters>
+                <LevelRangeFilter minLevel="warn" maxLevel="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </File>
+
+        <!-- Appender для ERROR сообщений -->
+        <File name="ErrorFile" fileName="logs/error.log">
+            <PatternLayout pattern="%d{ISO8601} [%t] %-5level: %msg%n%throwable"/>
+            <Filters>
+                <LevelRangeFilter minLevel="error" maxLevel="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <!-- Logger для вашего приложения -->
+        <Logger name="com.example.logger" level="trace" additivity="false">
+            <AppenderRef ref="TraceFile"/>
+            <AppenderRef ref="DebugFile"/>
+            <AppenderRef ref="InfoFile"/>
+            <AppenderRef ref="WarnFile"/>
+            <AppenderRef ref="ErrorFile"/>
+        </Logger>
+
+        <!-- Корневой Logger -->
+        <Root level="trace">
+            <AppenderRef ref="TraceFile"/>
+            <AppenderRef ref="DebugFile"/>
+            <AppenderRef ref="InfoFile"/>
+            <AppenderRef ref="WarnFile"/>
+            <AppenderRef ref="ErrorFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
