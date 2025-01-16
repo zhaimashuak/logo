@@ -1,2 +1,2 @@
 # logo
-logger
+logger java  exercise
